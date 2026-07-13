@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: fb-deployment
+ labels:
+  app: fb
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: fb-app
+     env: prod
+ template:
+   metadata:
+    labels:
+     app: fb-app
+     env: prod
+     version: v1
+   spec:
+    containers:
+      - name: fbconatiner
+        image: harikrishna112233/batch17d:python_code
